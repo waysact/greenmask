@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go v1.55.7
 	github.com/dchest/siphash v1.2.3
 	github.com/docker/go-connections v0.5.0
-	github.com/expr-lang/expr v1.17.4
+	github.com/expr-lang/expr v1.17.7
 	github.com/ggwhite/go-masker v1.1.0
 	github.com/go-faker/faker/v4 v4.6.1
 	github.com/go-viper/mapstructure/v2 v2.2.1
