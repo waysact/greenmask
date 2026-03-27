@@ -51,7 +51,7 @@ on [ggwhite/go-masker](https://github.com/ggwhite/go-masker).
 
     | Rule          | Description                                                                                                      | Example input                                      | Example output                          |
     |---------------|------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|-----------------------------------------|
-    | `default`     | Returns the sequence of `*` symbols of the same length                                                           | `test1234`                                         | `********`                              |
+    | `default`     | Returns the sequence of `*` symbols of the same character length (unicode-safe)                                   | `test1234`                                         | `********`                              |
     | `name`        | Masks the second and the third letters                                                                           | `ABCD`                                             | `A**D`                                  |
     | `password`    | Always returns a sequence of `*`                                                                                 |                                                    |                                         |
     | `address`     | Keeps first 6 letters, masks the rest                                                                            | `Larnaca, makarios st`                             | `Larnac*************`                   |
@@ -61,7 +61,7 @@ on [ggwhite/go-masker](https://github.com/ggwhite/go-masker).
     | `id`          | Masks last 4 digits of an ID                                                                                     | `A123456789`                                       | `A12345****`                            |
     | `credit_card` | Masks 6 digits starting from the 7th digit                                                                       | `1234567890123456`                                 | `123456******3456`                      |
     | `url`         | Masks the password part of the URL (if applicable)                                                               | `http://admin:mysecretpassword@localhost:1234/uri` | `http://admin:xxxxx@localhost:1234/uri` |
-    | `postcode`    | Keeps first 2 characters, masks the rest                                                                         | `SW1A 1AA`                                         | `SW******`                              |
+    | `postcode`    | Keeps first 2 characters, masks the rest (unicode-safe)                                                          | `SW1A 1AA`                                         | `SW******`                              |
 
 === "Signature"
 

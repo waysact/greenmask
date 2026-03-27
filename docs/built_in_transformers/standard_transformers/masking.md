@@ -15,7 +15,7 @@ supports the following masking rules:
 
 |    Type     | Description                                                                                                                                                          |
 |:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   default   | Returns `*` symbols with the same length, e.g. input: `test1234` output: `********`                                                                                  |
+|   default   | Returns `*` symbols with the same character length (unicode-safe), e.g. input: `test1234` output: `********`                                                              |
 |    name     | Masks the second letter the third letter in a word, e. g. input: `ABCD` output: `A**D`                                                                               |
 |  password   | Always returns `************`                                                                                                                                        |
 |   address   | Keeps first 6 letters, masks the rest, e. g. input: `Larnaca, makarios st` output: `Larnac*************`                                                             |
@@ -25,7 +25,7 @@ supports the following masking rules:
 |     id      | Masks last 4 digits of ID number, e. g. input: `A123456789` output: `A12345****`                                                                                     |
 | credit_cart | Masks 6 digits starting from the 7th digit, e. g. input `1234567890123456` output `123456******3456`                                                                 |
 |     url     | Masks the password part of the URL, if applicable, e. g. `http://admin:mysecretpassword@localhost:1234/uri` output: `http://admin:xxxxx@localhost:1234/uri`          |
-|  postcode   | Keeps first 2 characters, masks the rest, e. g. input: `SW1A 1AA` output: `SW******`                                                                                 |
+|  postcode   | Keeps first 2 characters, masks the rest (unicode-safe), e. g. input: `SW1A 1AA` output: `SW******`                                                                   |
 
 ## Example: Masking employee national ID number
 

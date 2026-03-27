@@ -22,6 +22,7 @@ import (
 	"strings"
 	"text/template"
 	"time"
+	"unicode/utf8"
 
 	"github.com/Masterminds/sprig/v3"
 	"github.com/ggwhite/go-masker"
@@ -47,6 +48,7 @@ const (
 	MID         string = "id"
 	MCreditCard string = "credit_card"
 	MURL        string = "url"
+	MPostcode   string = "postcode"
 	MDefault    string = "default"
 )
 
@@ -361,8 +363,14 @@ func masking(m *masker.Masker, dataType string, v string) (string, error) {
 		return m.CreditCard(v), nil
 	case MURL:
 		return m.URL(v), nil
+	case MPostcode:
+		runes := []rune(v)
+		if len(runes) <= 2 {
+			return v, nil
+		}
+		return string(runes[:2]) + strings.Repeat("*", len(runes)-2), nil
 	case MDefault:
-		return strings.Repeat("*", len(v)), nil
+		return strings.Repeat("*", utf8.RuneCountInString(v)), nil
 	default:
 		return "", fmt.Errorf("wrong type masking \"%s\"", dataType)
 	}
